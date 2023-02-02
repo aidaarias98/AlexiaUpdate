@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Youth from "../assets/youth.avif"
 import Older from "../assets/OlderAdults.avif"
 import Latinx from "../assets/LatinX.avif"
@@ -7,9 +7,25 @@ import Anxiety from '../assets/Anxiety.avif'
 import BIPOC from '../assets/BIPOC.avif'
 import WarningSigns from '../assets/WarningSigns.avif'
 import Suicide from '../assets/SuicideCat.avif'
+import Translation from './TranslationEngToSpan/Data.json'
 
 
-export const CategoriesMental = () => {
+
+export const CategoriesMental = (props) => {
+    const { language } = props
+    // const [language,setLanguage]=useState("spanish")
+    const [content, setContent] = useState({})
+
+    useEffect(() => {
+        if (language === "english") {
+            setContent(Translation.english)
+        } else if (language === "spanish") {
+            setContent(Translation.spanish)
+        }
+
+    },
+        [language])
+
     return (
         <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
             <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
@@ -38,12 +54,19 @@ export const CategoriesMental = () => {
                                 height="24"
                             />
                         </svg>
-                        <span className="relative text-black">More On</span>
+                        <span className="relative text-black">
+                            {content.translate355}
+                            {/* More On */}
+                        </span>
                     </span>{' '}
-                    <span className="text-ally2">Mental Health</span>
+                    <span className="text-ally2">
+                        {content.translate36}
+                        {/* Mental Health */}
+                    </span>
                 </h2>
                 <p className="text-base text-black md:text-lg">
-                    More info on major mental health topics and conditions
+                    {/* More info on major mental health topics and conditions */}
+                    {content.translate37}
                 </p>
             </div>
             <div className="grid gap-5 row-gap-5 mb-8 lg:grid-cols-4 sm:grid-cols-2">
@@ -61,11 +84,13 @@ export const CategoriesMental = () => {
                         <div className="flex-grow border border-t-0 rounded-b">
                             <div className="p-5">
                                 <h6 className="mb-2 text-xl font-semibold leading-5">
-                                    Depression
+                                    {/* Depression */}
+                                    {content.translate38}
                                 </h6>
                                 <p className="text-xs text-gray-900">
-                                    Major depression is one of the most common mental illnesses,
-                                    affecting more than 21 million of American adults each year.
+                                    {content.translate39}
+                                    {/* Major depression is one of the most common mental illnesses,
+                                    affecting more than 21 million of American adults each year. */}
                                 </p>
                             </div>
                         </div>
@@ -74,7 +99,7 @@ export const CategoriesMental = () => {
                 <a
                     href="https://mhanational.org/conditions/anxiety"
                     aria-label="View Item"
-                    className="inline-block overflow-hidden duration-300 transform bg-ally7 rounded shadow-sm hover:-translate-y-2"
+                    className="inline-block overflow-hidden duration-300 transform  bg-ally7 rounded shadow-sm hover:-translate-y-2"
                 >
                     <div className="flex flex-col h-full">
                         <img
@@ -85,10 +110,12 @@ export const CategoriesMental = () => {
                         <div className="flex-grow border border-t-0 rounded-b">
                             <div className="p-5">
                                 <h6 className="mb-2 text-xl font-semibold leading-5">
-                                    Anxiety
+                                    {content.translate40}
+                                    {/* Anxiety */}
                                 </h6>
                                 <p className="text-xs text-gray-900">
-                                    Anxiety disorders are among the most common mental illnesses in America; over 42.5 million of adults are affected by these debilitating illnesses each year.
+                                    {content.translate41}
+                                    {/* Anxiety disorders are among the most common mental illnesses in America; over 42.5 million of adults are affected by these debilitating illnesses each year. */}
                                 </p>
                             </div>
                         </div>
@@ -97,7 +124,7 @@ export const CategoriesMental = () => {
                 <a
                     href="https://mhanational.org/conditions/suicide"
                     aria-label="View Item"
-                    className="inline-block overflow-hidden duration-300 transform bg-ally7 rounded shadow-sm hover:-translate-y-2"
+                    className="inline-block overflow-hidden duration-300 transform  bg-ally7 rounded shadow-sm hover:-translate-y-2"
                 >
                     <div className="flex flex-col h-full">
                         <img
@@ -107,10 +134,14 @@ export const CategoriesMental = () => {
                         />
                         <div className="flex-grow border border-t-0 rounded-b">
                             <div className="p-5">
-                                <h6 className="mb-2 text-xl font-semibold leading-5">Suicide</h6>
+                                <h6 className="mb-2 text-xl font-semibold leading-5">
+                                    {/* Suicide */}
+                                    {content.translate42}
+                                </h6>
                                 <p className="text-xs text-gray-900">
-                                    The majority of suicides worldwide are related to mental
-                                    health disorders; depression, substance use, and psychosis are the biggest risk factors.
+                                    {content.translate43}
+                                    {/* The majority of suicides worldwide are related to mental
+                                    health disorders; depression, substance use, and psychosis are the biggest risk factors. */}
                                 </p>
                             </div>
                         </div>
@@ -119,7 +150,7 @@ export const CategoriesMental = () => {
                 <a
                     href="https://mhanational.org/bipoc"
                     aria-label="View Item"
-                    className="inline-block overflow-hidden duration-300 transform bg-ally7 rounded shadow-sm hover:-translate-y-2"
+                    className="inline-block overflow-hidden duration-300 transform  bg-ally7 rounded shadow-sm hover:-translate-y-2"
                 >
                     <div className="flex flex-col h-full">
                         <img
@@ -130,10 +161,12 @@ export const CategoriesMental = () => {
                         <div className="flex-grow border border-t-0 rounded-b">
                             <div className="p-5">
                                 <h6 className="mb-2 text-xl font-semibold leading-5">
-                                    BIPOC Mental Health
+                                    {content.translate44}
+                                    {/* BIPOC Mental Health */}
                                 </h6>
                                 <p className="text-sm text-gray-900">
-                                    Mental Health Resources For Black, Indigenous, And People Of Color
+                                    {content.translate45}
+                                    {/* Mental Health Resources For Black, Indigenous, And People Of Color */}
                                 </p>
                             </div>
                         </div>
@@ -153,12 +186,14 @@ export const CategoriesMental = () => {
                         <div className="flex-grow border border-t-0 rounded-b">
                             <div className="p-5">
                                 <h6 className="mb-2 text-xl font-semibold leading-5">
-                                    Warning Signs
+                                    {content.translate46}
+                                    {/* Warning Signs */}
                                 </h6>
                                 <p className="text-xs text-gray-900">
-                                    It is especially important to pay attention to sudden
+                                    {content.translate47}
+                                    {/* It is especially important to pay attention to sudden
                                     changes in thoughts and behaviors. Also keep in mind that
-                                    the onset of several of the symptoms below, and not just any one change, indicates a problem that should be assessed.
+                                    the onset of several of the symptoms below, and not just any one change, indicates a problem that should be assessed. */}
                                 </p>
                             </div>
                         </div>
@@ -167,7 +202,7 @@ export const CategoriesMental = () => {
                 <a
                     href="https://www.vayahealth.com/get-to-know-us/current-news/rethinking-mental-health-in-the-latino-community/"
                     aria-label="View Item"
-                    className="inline-block overflow-hidden duration-300 transform bg-ally7 rounded shadow-sm hover:-translate-y-2"
+                    className="inline-block overflow-hidden duration-300 transform  bg-ally7 rounded shadow-sm hover:-translate-y-2"
                 >
                     <div className="flex flex-col h-full">
                         <img
@@ -178,12 +213,14 @@ export const CategoriesMental = () => {
                         <div className="flex-grow border border-t-0 rounded-b">
                             <div className="p-5">
                                 <h6 className="mb-2 text-xl font-semibold leading-5">
-                                    Latinx Mental Health
+                                    {content.translate48}
+                                    {/* Latinx Mental Health */}
                                 </h6>
                                 <p className="text-xs text-gray-900">
-                                    It is important to look at how culture can add to mental health
+                                    {content.translate49}
+                                    {/* It is important to look at how culture can add to mental health
                                     stigma in the Latino community. A lack of understanding and acceptance
-                                    of mental illness keep many from speaking about their problems and getting professional care.
+                                    of mental illness keep many from speaking about their problems and getting professional care. */}
                                 </p>
                             </div>
                         </div>
@@ -192,7 +229,7 @@ export const CategoriesMental = () => {
                 <a
                     href="https://mhanational.org/depression-older-adults"
                     aria-label="View Item"
-                    className="inline-block overflow-hidden duration-300 transform bg-ally7 rounded shadow-sm hover:-translate-y-2"
+                    className="inline-block overflow-hidden duration-300 transform  bg-ally7 rounded shadow-sm hover:-translate-y-2"
                 >
                     <div className="flex flex-col h-full">
                         <img
@@ -202,11 +239,15 @@ export const CategoriesMental = () => {
                         />
                         <div className="flex-grow border border-t-0 rounded-b">
                             <div className="p-5">
-                                <h6 className="mb-2 text-xl font-semibold leading-5">Older Adults</h6>
+                                <h6 className="mb-2 text-xl font-semibold leading-5">
+                                    {content.translate50}
+                                    {/* Older Adults */}
+                                </h6>
                                 <p className="text-xs text-gray-900">
-                                    Depression is often under-recognized and under-treated in older adults.
+                                    {content.translate51}
+                                    {/* Depression is often under-recognized and under-treated in older adults.
                                     Without treatment, depression can impair an older adult’s ability to function and
-                                    enjoy life, and can contribute to poorer overall health.
+                                    enjoy life, and can contribute to poorer overall health. */}
                                 </p>
                             </div>
                         </div>
@@ -215,7 +256,7 @@ export const CategoriesMental = () => {
                 <a
                     href="https://mhanational.org/childrens-mental-health"
                     aria-label="View Item"
-                    className="inline-block overflow-hidden duration-300 transform bg-ally7 rounded shadow-sm hover:-translate-y-2"
+                    className="inline-block overflow-hidden duration-300 transform  bg-ally7 rounded shadow-sm hover:-translate-y-2"
                 >
                     <div className="flex flex-col h-full">
                         <img
@@ -226,12 +267,14 @@ export const CategoriesMental = () => {
                         <div className="flex-grow border border-t-0 rounded-b">
                             <div className="p-5">
                                 <h6 className="mb-2 text-xl font-semibold leading-5">
-                                    Youth
+                                    {content.translate52}
+                                    {/* Youth */}
                                 </h6>
                                 <p className="text-xs text-gray-900">
-                                    The first “basic” is to know that children’s mental health matters.
+                                    {content.translate53}
+                                    {/* The first “basic” is to know that children’s mental health matters.
                                     We need to treat a child’s mental health just like we do their physical health,
-                                    by giving it thought and attention and, when needed, professional help.
+                                    by giving it thought and attention and, when needed, professional help. */}
                                 </p>
                             </div>
                         </div>

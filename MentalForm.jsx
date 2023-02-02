@@ -1,7 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Translation from '../components/TranslationEngToSpan/Data.json'
 
-function MentalForm() {
+export const MentalForm = (props) => {
+
+
+    const { language } = props
+    // const [language,setLanguage]=useState("spanish")
+    const [content, setContent] = useState({})
+
+    useEffect(() => {
+        if (language === "english") {
+            setContent(Translation.english)
+        } else if (language === "spanish") {
+            setContent(Translation.spanish)
+        }
+
+    },
+        [language])
+
     const [fullName, setfullName] = useState("");
     const [question1, setQuestion1] = useState("");
     const [question2, setQuestion2] = useState("");
@@ -35,11 +52,12 @@ function MentalForm() {
         <>
             <div className="mb-10 text-center md:mb-16 lg:mb-20">
                 <button
-                    className=" bg-ally1 text-white active:bg-ally1 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:bg-ally2 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    className=" bg-ally1 text-ally7 active:bg-ally1 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:bg-ally2 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
                     onClick={() => setShowModal(true)}
                 >
-                    Take Assessment
+                    {content.translate17}
+                    {/* Take Assessment */}
                 </button>
             </div>
 
@@ -52,7 +70,8 @@ function MentalForm() {
                                 {/*header*/}
                                 <div className="flex items-start justify-between p-3 border-b border-solid border-slate-200 rounded-t">
                                     <h3 className="text-2xl font-semibold">
-                                        Mental Health Assessment
+                                        {content.translate18}
+                                        {/* Mental Health Assessment */}
                                     </h3>
                                     <button
                                         className="p-1 ml-auto bg-transparent border-0 text-black  float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
@@ -67,7 +86,8 @@ function MentalForm() {
 
                                 <form className="bg-ally7 shadow-md rounded px-8 pt-6 pb-8 w-full">
                                     <label className="block text-black text-sm font-bold mb-1">
-                                        Full Name
+                                        {content.translate19}
+                                        {/* Full Name */}
                                     </label>
                                     <input
                                         type="text"
@@ -80,27 +100,33 @@ function MentalForm() {
                                     />
                                     <div className="relative p-1 flex-auto">
                                         <p className="my-4 text-black text-sm leading-relaxed">
-                                            Over the past 2 weeks, how often have you been bothered by
-                                            any of the following problems?
+                                            {content.translate20}
+                                            {/* Over the past 2 weeks, how often have you been bothered by
+                      any of the following problems? */}
                                         </p>
                                     </div>
                                     <div className="flex justify-evenly">
                                         <p className="ml-1 text-sm font-medium  dark:text-gray-500">
-                                            Not at All—0
+                                            {content.translate21}
+                                            {/* Not at All—0 */}
                                         </p>
                                         <p className="ml-1 text-sm font-medium  dark:text-gray-500">
-                                            Several Days—1
+                                            {content.translate22}
+                                            {/* Several Days—1 */}
                                         </p>
                                         <p className="ml-1 text-sm font-medium  dark:text-gray-500">
-                                            More Than Half the Days—2
+                                            {content.translate23}
+                                            {/* More Than Half the Days—2 */}
                                         </p>
                                         <p className="ml-1 text-sm font-medium  dark:text-gray-500">
-                                            Nearly Every Day—3
+                                            {content.translate24}
+                                            {/* Nearly Every Day—3 */}
                                         </p>
                                     </div>
                                     <br></br>
                                     <p className="block text-black text-sm font-bold mb-1">
-                                        1. Little interest or pleasure in doing things
+                                        {content.translate25}
+                                        {/* 1. Little interest or pleasure in doing things */}
                                     </p>
                                     <div className="flex">
                                         <div className="flex items-center mr-4">
@@ -178,7 +204,8 @@ function MentalForm() {
                                     </div>
 
                                     <p className="block text-black text-sm font-bold mb-1">
-                                        2. Feeling down, depressed or hopeless
+                                        {content.translate26}
+                                        {/* 2. Feeling down, depressed or hopeless */}
                                     </p>
                                     <div className="flex">
                                         <div className="flex items-center mr-4">
@@ -255,8 +282,9 @@ function MentalForm() {
                                         </div>
                                     </div>
                                     <p className="block text-black text-sm font-bold mb-1">
-                                        3. Trouble falling asleep, staying asleep, or sleeping too
-                                        much
+                                        {content.translate27}
+                                        {/* 3. Trouble falling asleep, staying asleep, or sleeping too
+                    much */}
                                     </p>
                                     <div className="flex">
                                         <div className="flex items-center mr-4">
@@ -333,7 +361,8 @@ function MentalForm() {
                                         </div>
                                     </div>
                                     <p className="block text-black text-sm font-bold mb-1">
-                                        4. Feeling tired or having little energy
+                                        {content.translate28}
+                                        {/* 4. Feeling tired or having little energy */}
                                     </p>
                                     <div className="flex">
                                         <div className="flex items-center mr-4">
@@ -410,7 +439,8 @@ function MentalForm() {
                                         </div>
                                     </div>
                                     <p className="block text-black text-sm font-bold mb-1">
-                                        5. Poor appetite or overeating
+                                        {content.translate29}
+                                        {/* 5. Poor appetite or overeating */}
                                     </p>
                                     <div className="flex">
                                         <div className="flex items-center mr-4">
@@ -487,8 +517,9 @@ function MentalForm() {
                                         </div>
                                     </div>
                                     <p className="block text-black text-sm font-bold mb-1">
-                                        6. Feeling bad about yourself - or that you're a failure or
-                                        have let yourself or your family down
+                                        {content.translate30}
+                                        {/* 6. Feeling bad about yourself - or that you're a failure or
+                    have let yourself or your family down */}
                                     </p>
                                     <div className="flex">
                                         <div className="flex items-center mr-4">
@@ -565,8 +596,9 @@ function MentalForm() {
                                         </div>
                                     </div>
                                     <p className="block text-black text-sm font-bold mb-1">
-                                        7. Trouble concentrating on things, such as reading the
-                                        newspaper or watching television
+                                        {content.translate31}
+                                        {/* 7. Trouble concentrating on things, such as reading the
+                    newspaper or watching television */}
                                     </p>
                                     <div className="flex">
                                         <div className="flex items-center mr-4">
@@ -643,9 +675,10 @@ function MentalForm() {
                                         </div>
                                     </div>
                                     <p className="block text-black text-sm font-bold mb-1">
-                                        8. Moving or speaking so slowly that other people could have
-                                        notice. Or the opposite- being so fidgety or restless that
-                                        you have been moving around a lot more than usual
+                                        {content.translate32}
+                                        {/* 8. Moving or speaking so slowly that other people could have
+                    notice. Or the opposite- being so fidgety or restless that
+                    you have been moving around a lot more than usual */}
                                     </p>
                                     <div className="flex">
                                         <div className="flex items-center mr-4">
@@ -722,8 +755,9 @@ function MentalForm() {
                                         </div>
                                     </div>
                                     <p className="block text-black text-sm font-bold mb-1">
-                                        9. Thoughts that you would be better off dead or of hurting
-                                        yourself in some way
+                                        {content.translate33}
+                                        {/* 9. Thoughts that you would be better off dead or of hurting
+                    yourself in some way */}
                                     </p>
                                     <div className="flex">
                                         <div className="flex items-center mr-4">
@@ -807,10 +841,11 @@ function MentalForm() {
                                         type="button"
                                         onClick={() => setShowModal(false)}
                                     >
-                                        Close
+                                        {content.translate34}
+                                        {/* Close */}
                                     </button>
                                     <button
-                                        className="bg-ally1 text-ally7 active:bg-ally8 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                        className="bg-ally1 text-white active:bg-ally8 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:bg-ally8 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                                         type="button"
                                         // onClick={surveySubmit}
                                         onClick={() => {
@@ -818,7 +853,8 @@ function MentalForm() {
                                             surveySubmit();
                                         }}
                                     >
-                                        Submit
+                                        {content.translate35}
+                                        {/* Submit */}
                                     </button>
                                 </div>
                             </div>

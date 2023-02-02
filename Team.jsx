@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Brianna from "../assets/BriannaKnox.jpeg";
 import Amanda from "../assets/AmandaHuber.jpeg";
 import Diana from "../assets/DianaLLeras.webp";
@@ -7,14 +7,27 @@ import Nichole from "../assets/NicholeWalton.jpeg";
 import Jonathan from "../assets/JonathanMeza.jpeg";
 import Brandon from "../assets/BrandonShindo.jpeg";
 import Josephine from "../assets/JosephineAlmanzar.webp";
+import Translation from "./TranslationEngToSpan/Data.json";
 
-export const Team = () => {
+export const Team = (props) => {
+    const { language } = props;
+    // const [language,setLanguage]=useState("spanish")
+    const [content, setContent] = useState({});
+
+    useEffect(() => {
+        if (language === "english") {
+            setContent(Translation.english);
+        } else if (language === "spanish") {
+            setContent(Translation.spanish);
+        }
+    }, [language]);
     return (
         <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
             <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
                 <div>
                     <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-black uppercase rounded-full bg-ally8">
-                        Mentally Team
+                        {content.translate66}
+                        {/* Mentally Team */}
                     </p>
                 </div>
                 <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
@@ -41,12 +54,17 @@ export const Team = () => {
                                 height="24"
                             />
                         </svg>
-                        <span className="relative text-purple">Welcome</span>
+                        <span className="relative text-ally2">
+                            {content.translate665}
+                            {/* Welcome */}
+                        </span>
                     </span>{" "}
-                    our talented team of professionals
+                    {content.translate67}
+                    {/* our talented team of professionals */}
                 </h2>
                 <p className="text-base text-gray-700 md:text-lg">
-                    Below you will find some of our talented group of therapists.
+                    {content.translate68}
+                    {/* Below you will find some of our talented group of therapists. */}
                 </p>
             </div>
             <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
@@ -62,11 +80,13 @@ export const Team = () => {
                                 Brianna Knox
                             </p>
                             <p className="mb-4 text-xs text-gray-100">
-                                Licensed Clinical Social Worker
+                                {content.translate69}
+                                {/* Licensed Clinical Social Worker */}
                             </p>
                             <p className="mb-4 text-xs tracking-wide text-gray-400">
-                                As a Black, Queer, Millennial therapist, I am passionate about
-                                providing relatable therapy to BIPOC and LGBTQ+ Millennials.
+                                {content.translate70}
+                                {/* As a Black, Queer, Millennial therapist, I am passionate about
+                providing relatable therapy to BIPOC and LGBTQ+ Millennials. */}
                             </p>
                             <div className="flex items-center justify-center space-x-3">
                                 <a
@@ -101,11 +121,13 @@ export const Team = () => {
                                 Amanda Huber Lopera
                             </p>
                             <p className="mb-4 text-xs text-gray-100">
-                                Licensed Clinical Social Worker, MSW
+                                {content.translate71}
+                                {/* Licensed Clinical Social Worker, MSW */}
                             </p>
                             <p className="mb-4 text-xs tracking-wide text-gray-400">
-                                Dedicated to supporting the black and brown communities and all
-                                other vulnerable people. Hablo Español!
+                                {content.translate72}
+                                {/* Dedicated to supporting the black and brown communities and all
+                other vulnerable people. Hablo Español! */}
                             </p>
                             <div className="flex items-center justify-center space-x-3">
                                 <a
@@ -140,12 +162,14 @@ export const Team = () => {
                                 Diana Lleras
                             </p>
                             <p className="mb-4 text-xs text-gray-100">
-                                Licensed Professional Counselor, MS, NCC
+                                {content.translate73}
+                                {/* Licensed Professional Counselor, MS, NCC */}
                             </p>
                             <p className="mb-4 text-xs tracking-wide text-gray-400">
-                                My areas of specialty include Cognitive Behavioral Therapy,
-                                Dialectical Behavioral Therapy, Cognitive Processing Therapy,
-                                and Trauma-focused CBT. Hablo Español!
+                                {content.translate74}
+                                {/* My areas of specialty include Cognitive Behavioral Therapy,
+                Dialectical Behavioral Therapy, Cognitive Processing Therapy,
+                and Trauma-focused CBT. Hablo Español! */}
                             </p>
                             <div className="flex items-center justify-center space-x-3">
                                 <a
@@ -180,11 +204,13 @@ export const Team = () => {
                                 Roberto Carlos Martinez
                             </p>
                             <p className="mb-4 text-xs text-gray-100">
-                                Licensed Professional Counselor, LCPC, NCC, CCTP
+                                {content.translate75}
+                                {/* Licensed Professional Counselor, LCPC, NCC, CCTP */}
                             </p>
                             <p className="mb-4 text-xs tracking-wide text-gray-400">
-                                I specialize in providing counseling for grief, loss, anxiety,
-                                trauma, and relationship issues. Hablo Español!
+                                {content.translate76}
+                                {/* I specialize in providing counseling for grief, loss, anxiety,
+                trauma, and relationship issues. Hablo Español! */}
                             </p>
                             <div className="flex items-center justify-center space-x-3">
                                 <a
@@ -219,11 +245,13 @@ export const Team = () => {
                                 Nichole Walton
                             </p>
                             <p className="mb-4 text-xs text-gray-100">
-                                Licensed Clinical Social Worker, MCAP, SAP, QS
+                                {content.translate77}
+                                {/* Licensed Clinical Social Worker, MCAP, SAP, QS */}
                             </p>
                             <p className="mb-4 text-xs tracking-wide text-gray-400">
-                                I am a Licensed Clinical Social Worker who has focused training
-                                with treating issues of trauma and addiction.
+                                {content.translate78}
+                                {/* I am a Licensed Clinical Social Worker who has focused training
+                with treating issues of trauma and addiction. */}
                             </p>
                             <div className="flex items-center justify-center space-x-3">
                                 <a
@@ -258,12 +286,14 @@ export const Team = () => {
                                 Jonathan Meza
                             </p>
                             <p className="mb-4 text-xs text-gray-100">
-                                Licensed Professional Clinical Counselor
+                                {content.translate79}
+                                {/* Licensed Professional Clinical Counselor */}
                             </p>
                             <p className="mb-4 text-xs tracking-wide text-gray-400">
-                                My areas of experience and specialty include working with
-                                children, adolescents and adults facing depression, anxiety,
-                                anger,grief counseling. Hablo Español!
+                                {content.translate80}
+                                {/* My areas of experience and specialty include working with
+                children, adolescents and adults facing depression, anxiety,
+                anger,grief counseling. Hablo Español! */}
                             </p>
                             <div className="flex items-center justify-center space-x-3">
                                 <a
@@ -298,11 +328,13 @@ export const Team = () => {
                                 Brandon Shindo
                             </p>
                             <p className="mb-4 text-xs text-gray-100">
-                                Licensed Clinical Social Worker, MSW
+                                {content.translate81}
+                                {/* Licensed Clinical Social Worker, MSW */}
                             </p>
                             <p className="mb-4 text-xs tracking-wide text-gray-400">
-                                Specialization: Asian American Pacific Islander, Young
-                                Professionals, and College Students' Mental Health.
+                                {content.translate82}
+                                {/* Specialization: Asian American Pacific Islander, Young
+                Professionals, and College Students' Mental Health. */}
                             </p>
                             <div className="flex items-center justify-center space-x-3">
                                 <a
@@ -337,12 +369,14 @@ export const Team = () => {
                                 Dr. Josephine Almanzar
                             </p>
                             <p className="mb-4 text-xs text-gray-100">
-                                Licensed Psychologist
+                                {content.translate83}
+                                {/* Licensed Psychologist */}
                             </p>
                             <p className="mb-4 text-xs tracking-wide text-gray-400">
-                                I view my clients holistically by celebrating cultural
-                                differences and recognizing social justice as an integral part
-                                of healing.
+                                {content.translate84}
+                                {/* I view my clients holistically by celebrating cultural
+                differences and recognizing social justice as an integral part
+                of healing. */}
                             </p>
                             <div className="flex items-center justify-center space-x-3">
                                 <a

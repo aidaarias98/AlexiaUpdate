@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Workplace from "../assets/wokplace.png";
 import Latinx from "../assets/Latinx.webp";
 import SuicideAwarness from "../assets/Suicide.png";
+import Translation from "./TranslationEngToSpan/Data.json";
 
-export const MentalBlog = () => {
+export const MentalBlog = (props) => {
+    const { language } = props;
+    // const [language,setLanguage]=useState("spanish")
+    const [content, setContent] = useState({});
+
+    useEffect(() => {
+        if (language === "english") {
+            setContent(Translation.english);
+        } else if (language === "spanish") {
+            setContent(Translation.spanish);
+        }
+    }, [language]);
     return (
         <>
             <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
@@ -29,13 +41,15 @@ export const MentalBlog = () => {
                                 className="inline-block mb-3 text-black transition-colors duration-200 hover:text-deep-purple-accent-700"
                             >
                                 <p className="text-xl font-bold leading-5">
-                                    Supporting Mental Health in the Workplace
+                                    {content.translate60}
+                                    {/* Supporting Mental Health in the Workplace */}
                                 </p>
                             </a>
                             <p className="mb-4 text-gray-700">
-                                Difficult topics, like mental illness and suicide, have likely
-                                impacted more people within your organization than you think —
-                                it is simply not discussed openly.
+                                {content.translate61}
+                                {/* Difficult topics, like mental illness and suicide, have likely
+                impacted more people within your organization than you think —
+                it is simply not discussed openly. */}
                             </p>
                             <div className="flex space-x-4">
                                 <a
@@ -126,14 +140,16 @@ export const MentalBlog = () => {
                                 className="inline-block mb-3 text-black transition-colors duration-200 hover:text-deep-purple-accent-700"
                             >
                                 <p className="text-xl font-bold leading-5">
-                                    How My Latina Identity Holds Hands with My Depression
+                                    {content.translate62}
+                                    {/* How My Latina Identity Holds Hands with My Depression */}
                                 </p>
                             </a>
                             <p className="mb-4 text-gray-700 text-sm">
-                                There is a perception in Latinx/Hispanic communities, especially
-                                among older people, that discussing problems with mental health
-                                can create embarrassment and shame for the family, resulting in
-                                fewer people seeking treatment
+                                {content.translate63}
+                                {/* There is a perception in Latinx/Hispanic communities, especially
+                among older people, that discussing problems with mental health
+                can create embarrassment and shame for the family, resulting in
+                fewer people seeking treatment */}
                             </p>
                             <div className="flex space-x-4">
                                 <a
@@ -224,13 +240,15 @@ export const MentalBlog = () => {
                                 className="inline-block mb-3 text-black transition-colors duration-200 hover:text-deep-purple-accent-700"
                             >
                                 <p className="text-xl font-bold leading-5">
-                                    Changing The Conversation About Suicide
+                                    {content.translate64}
+                                    {/* Changing The Conversation About Suicide */}
                                 </p>
                             </a>
                             <p className="mb-4 text-gray-700">
-                                Suicide is the 12th leading cause of death overall in the U.S.—
-                                and 90% of people who die by suicide may have experienced
-                                symptoms of a mental health condition.
+                                {content.translate65}
+                                {/* Suicide is the 12th leading cause of death overall in the U.S.—
+                and 90% of people who die by suicide may have experienced
+                symptoms of a mental health condition. */}
                             </p>
                             <div className="flex space-x-4">
                                 <a
