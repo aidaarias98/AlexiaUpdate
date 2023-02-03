@@ -1,15 +1,36 @@
 ## ![ally](https://user-images.githubusercontent.com/112099409/216687498-0c6a30db-6794-4976-a95c-cc749867bc8a.png)- Capstone Project
 
-Mentally is a react application 
+Mentally is a react application that was built as a final project for the Road to Hire Program. 
+
+## Our Mission 
+We want to provide education and information to those seeking or receiving mental health services, such as people diagnosed with life-threatening/ terminal illnesses. We want to provide personal coping ability, and internal and external resources from their own areas of strength are often better able to address difficulties, feel more in control of the condition(s), and have a greater internal capacity to work toward mental and emotional well-being. Many Latino individuals who have a mental health condition know little or nothing about the condition they have been diagnosed with, (because it’s such a taboo thing, and stigma) what they might expect from therapy or the positive and negative effects of any medications they may be prescribed.
 
 ## Features
 - Home
 - MyHealth360
+	- MyHealth360 page can be entirely translated to Spanish 
+  - Health Resources
+  - Physicians
 - Motherhood360
+	- Motherhood360 page can be entirely translated to Spanish
+	- Postpartum resources
+	- Children Physician 
+	- Support group sign-up
 - MyMind360
+	- MyMind360 page can be entirely translated to Spanish
+	- Includes a mental health form assessment that is sent to the database as well as the admin dashboard
+	- Mental Health Resources
+	- Mental Health Physicians
 - Contact
+	- Form that is sent to the database
 - Chat
+	- Chat that allows you to communicate with Mentally Staff
+	- Chat history is saved to the admin dashboard
 - Sign Up / Log In
+	- admin dashboard (For Mentally staff)
+	- Member dashboard
+
+
 
 ## Using and Running our app
 In order to begin using our app.....
