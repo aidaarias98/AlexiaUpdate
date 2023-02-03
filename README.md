@@ -1,11 +1,8 @@
-## MENTALLY - Capstone Project
-![ally](https://user-images.githubusercontent.com/112099409/216687498-0c6a30db-6794-4976-a95c-cc749867bc8a.png)
+## ![ally](https://user-images.githubusercontent.com/112099409/216687498-0c6a30db-6794-4976-a95c-cc749867bc8a.png)- Capstone Project
 
 Mentally is a react application 
 
 ## Features
-Mentally 
-
 - Home
 - MyHealth360
 - Motherhood360
